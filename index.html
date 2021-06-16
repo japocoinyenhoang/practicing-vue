@@ -32,7 +32,14 @@
 
     <pre>{{ $data }}</pre>
   </div>
+  <hr>
+  <div id="list">
+ <p v-for="(valor, propiedad) in user">{{ valor }} : {{ propiedad }}</p>
+        <hr>
+        <li v-for="(task, index) in tasks">{{ index }} - {{ task.name }}</li>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="index.js"></script>
+  <script src="listado.js"></script>
 </body>
 </html>
