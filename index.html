@@ -9,37 +9,52 @@
 <body>
   <div id="app">
     <h1>{{topic}}</h1>
+
     <input type="text" v-model="link">
-    <br>
     <a v-bind:href="link">{{link}}</a>
+    <br>
+
     <form action="" v-on:submit.prevent="saveTask">
       <input v-model= "newTask" type="text">
       <input type="submit" value="Guardar">
     </form>
-       
+    <hr>   
+    
     <input v-model="height" type="range">Alto
     <br>
     <input v-model="width" type="range">Ancho
     <br>
     <img :src="completeURL" alt="">
     <hr>
+
     <ul>
       <li v-for="task in tasks">
         {{task}}
       </li>
     </ul>
- 
-
-    <pre>{{ $data }}</pre>
+  <pre>{{ $data }}</pre>
   </div>
   <hr>
+
   <div id="list">
- <p v-for="(valor, propiedad) in user">{{ valor }} : {{ propiedad }}</p>
-        <hr>
-        <li v-for="(task, index) in tasks">{{ index }} - {{ task.name }}</li>
+     <p v-for="(valor, propiedad) in user">{{ valor }} : {{ propiedad }}</p>
+    <hr>
+
+    <input type="range" v-model="time">{{ time }}
+    <br>
+    <input type="search" v-model="mySearch" placeholder="Buscar tarea">
+    <br>
+    <br>
+   
+     <li v-for="(task, index) in tasks">{{ index }} - {{ task.name }}</li>
+    <hr>
+     <li v-for="task in tasksFilter">{{ task.name }} - {{ task.time }}</li>
   </div>
+
+  
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="index.js"></script>
-  <script src="listado.js"></script>
+  <!--<script src="listado.js"></script>-->
+  <script src="propiedadesComputadas.js"></script>
 </body>
 </html>
